@@ -1,15 +1,3 @@
-
-#board -----done
-#writing on board -----done
-#switch turn -----done
-#check win row - clome digno ----done
-#input error catch done
-# check for tie done
-#check if the space is used done
-
-#CPU
-
-# Global ----
 turn = ''
 shown_turn = ''
 winner= ''
