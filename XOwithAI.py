@@ -68,18 +68,18 @@ def biscuit(play):
     global Remaining_plays
     board_copy = board[:]
     Remaining_plays = []
-    # check for posible losing spot
+    # check for posible losing/wining spots
     ai_play = 0
     loop_number = 0
     for xo in ['O', 'X']:
         loop_number = 0
         board_copy = board[:]
-
+         #add all remaing empty stop to an arry for the next loop
         for i in board_copy:
             if board_copy[loop_number] == '-':
                 Remaining_plays.append(loop_number)
             loop_number += 1
-
+         #loop using through all the raiming plays and check if one is losing / wining.
         for i in Remaining_plays:
             board_copy = board[:]
             board_copy[i] = xo
@@ -87,17 +87,17 @@ def biscuit(play):
                 ai_play = i
                 Remaining_plays = []
                 return ai_play
-
+    #add loop through corners and return one randomly if there is any
     corners = []
     for i in [0, 2, 6, 8]:
         if board[i] == '-':
             corners.append(i)
         if len(corners) > 0:
             return random.choice(corners)
-
+    #if non of the up loops returned any check the middle spot
     if board[4] == '-':
         return 4
-
+     #if nothing is posible loop and return anything
     Remaining_plays= []
     loop_number = 0
     for i in board:
